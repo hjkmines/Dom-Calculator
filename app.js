@@ -1,6 +1,8 @@
 const clear = document.querySelector("#clear")
 const screen = document.querySelector("#screen")
 const buttons = document.querySelectorAll("span")
+const operators = document.querySelectorAll(".operator")
+
 
 clear.addEventListener("click", () => {
   screen.textContent = ""
@@ -14,10 +16,22 @@ buttons.forEach(node => {
 
 const numbers = document.querySelectorAll(".number")
 
+// input numbers
 numbers.forEach(number => {
   number.addEventListener("click", event => {
-    screen.textContent = event.target.textContent
+    screen.textContent += event.target.textContent
   })
-})
+}) 
 
+// operations 
+operators.forEach(operator => {
+  console.log(operator.textContent == "=")
+  // if (operator.textContext == "+") {
+  //   operator.addEventListener("click", () => {
+  //     const divide1 = parseInt(screen.textContent)
+  //     console.log(typeof divide1)
+
+  //   })
+  // }
+})
 
