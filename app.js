@@ -3,10 +3,16 @@ const screen = document.querySelector("#screen")
 const buttons = document.querySelectorAll("span")
 const operators = document.querySelectorAll(".operator")
 
+let tracker = []
 
-clear.addEventListener("click", () => {
-  screen.textContent = ""
-})
+erase() 
+
+function erase() {
+  clear.addEventListener("click", () => {
+    screen.textContent = ""
+  })
+  tracker = [] 
+}
 
 buttons.forEach(node => {
   if (node.textContent == 0 || node.textContent == 1 || node.textContent == 2 || node.textContent == 3 || node.textContent == 4 || node.textContent == 5 || node.textContent == 6 || node.textContent == 7 || node.textContent == 8 || node.textContent == 9) {
@@ -17,21 +23,28 @@ buttons.forEach(node => {
 const numbers = document.querySelectorAll(".number")
 
 // input numbers
-numbers.forEach(number => {
-  number.addEventListener("click", event => {
-    screen.textContent += event.target.textContent
-  })
-}) 
+function numberInput() {
+  numbers.forEach(number => {
+    number.addEventListener("click", event => {
+      screen.textContent += event.target.textContent
+    })
+  }) 
+}
+
+numberInput()
 
 // operations 
 operators.forEach(operator => {
-  console.log(operator.textContent == "=")
-  // if (operator.textContext == "+") {
-  //   operator.addEventListener("click", () => {
-  //     const divide1 = parseInt(screen.textContent)
-  //     console.log(typeof divide1)
-
-  //   })
-  // }
+  operator.addEventListener("click", () => {
+    tracker.push(parseInt(screen.textContent)) 
+    screen.textContent = ""
+  
+      // if (event.target.textContent == "+") {
+      //   tracker.push(parseInt(screen.textContent))
+      //   screen.textContent = tracker.reduce((a, b) => a + b, 0)
+        
+      // }
+  
+})
 })
 
