@@ -38,13 +38,10 @@ operators.forEach(operator => {
   operator.addEventListener("click", () => {
     tracker.push(parseInt(screen.textContent)) 
     screen.textContent = ""
-  
-      // if (event.target.textContent == "+") {
-      //   tracker.push(parseInt(screen.textContent))
-      //   screen.textContent = tracker.reduce((a, b) => a + b, 0)
-        
-      // }
-  
 })
 })
 
+function sum() {
+  screen.textContent = tracker.reduce((a, b) => a + b, 0)
+
+}
