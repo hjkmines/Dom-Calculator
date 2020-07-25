@@ -1,6 +1,9 @@
-let clear = document.querySelector("#clear")
+const clear = document.querySelector("#clear")
+const screen = document.querySelector("#screen")
+
+screen.textContent = 3
 
 
-clear.addEventListener("click", (event) => {
-  console.log(event.target.innerText)
+clear.addEventListener("click", () => {
+  screen.textContent = ""
 })
